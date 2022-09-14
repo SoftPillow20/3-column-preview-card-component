@@ -1,0 +1,132 @@
+/*  DEV NOTE:
+    I never used the height property in any layout or content of this challenge except the body tag.
+    I didn't use height because Kevin Powell (A youtuber who teaches frontend developer)
+    said that it is messy and unconventional to use heights. Which is why I tried to challenge 
+    myself in this project to not use any heights except only if needed and that is the use of 
+    min-height in the body tag. 
+
+    I tried using relative units on this project to challenge myself on creating responsive website.
+    
+    Overall, I put all of the things that I've learned in practicing responsive layout. */
+
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    margin: 0;
+    display: flex; /* display: flex; & align-items: center;, to center the whole content */
+    align-items: center;
+    font-family: 'Lexend Deca', sans-serif;
+    background: hsl(0, 0%, 95%);
+}
+.parent-container{
+    display: flex; 
+    width: min(100%, 960px); /* the width: min(100%, 960px); is the same as using width: 100%; & min-width: 960px; */
+    margin-inline: auto; /* margin-inline: auto;, to help the content to be centered without using justify-content: center; */
+}
+.child-container{
+    margin-inline: auto;
+    display: flex;
+    width: 90%;
+    color: hsl(0, 0%, 95%);
+}
+.sedan, .suvs, .luxury{    
+    position: relative;
+    padding: 2.5em;
+}
+.sedan{
+    border-radius: 10px 0 0 10px; /* I mainly use shorthand because it looks cleaner and it helped me think logically whenever I choose to write it on shorthand */
+    background-color: hsl(31, 77%, 52%);
+}
+.suvs{
+    background-color: hsl(184, 100%, 22%);
+}
+.luxury{
+    border-radius: 0 10px 10px 0;
+    background-color: hsl(179, 100%, 13%); 
+}
+
+.sedan-logo, .suvs-logo, .luxury-logo{
+    width: 60px;
+}
+h2{
+    font-family:  'Big Shoulders Display', cursive;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.3rem;
+    padding: .75em 0;
+}
+p{
+    margin: 0 0 6em;
+    width: 100%;
+    font-size: 0.9375rem;
+    line-height: 2;
+    color: hsla(0, 0%, 100%, 0.75);
+}
+.btn{
+    border: none;
+    position: absolute; /* I used this css property to properly fixed the position of my btn. The reason I did this because my p tag is shrinking along the size of the content and it was forcing the btn to align itself with the p tag making the layout look awful. */
+    bottom: 3em;
+    padding: 1em 2em;
+    border-radius: 100px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.sedan .btn{
+    color: hsl(31, 77%, 52%);
+}
+.suvs .btn{
+    color: hsl(184, 100%, 22%);
+}
+.luxury .btn{
+    color: hsl(179, 100%, 13%);
+}
+.sedan .btn:active{
+    border: solid 1px #FFF;
+    background: hsl(31, 77%, 52%);
+    color: #FFF;
+}
+.suvs .btn:active{
+    border: solid 1px #FFF;
+    background: hsl(184, 100%, 22%);
+    color: #FFF;
+}
+.luxury .btn:active{
+    border: solid 1px #FFF;
+    background: hsl(179, 100%, 13%);
+    color: #FFF;
+}
+
+@media(max-width: 720px){
+    body{
+        margin: 5em 2em;
+    }
+    .child-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .sedan{
+        border-radius: 10px 10px 0 0;
+    }
+    .luxury{
+        border-radius: 0 0 10px 10px;
+    }
+    .sedan-logo, .suvs-logo, .luxury-logo{
+        width: 70px;
+    }
+    h2{
+        font-size: 2.3rem;
+        padding: .5em 0;
+    }
+    p{
+        margin: 0 0 5em;
+    }
+    .btn{
+        position: absolute;
+        bottom: 3.5em;
+    }
+}
